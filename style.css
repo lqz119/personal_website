@@ -188,3 +188,35 @@ footer {
     cursor: not-allowed;
     color: #666666;
 }
+
+
+
+/* ABOUT ME */
+.about-header {
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Vertically align the link with the title */
+    justify-content: flex-start; /* Keep items grouped to the left */
+    gap: 30px; /* Add space between the title and the link */
+}
+
+.about-header h2 {
+    margin: 0; /* Remove default margin to prevent misalignment */
+}
+
+.google-scholar-link {
+    text-decoration: none;
+    padding: 0.3em 1em; /* Adjust padding for a compact button look */
+    font-size: 0.9em; /* Slightly smaller text */
+    font-weight: bold;
+    color: #3a3a3a; /* Dark grey text */
+    border: 2px solid #3a3a3a;
+    border-radius: 20px;
+    background: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1; /* Ensure consistent vertical alignment */
+}
+
+.google-scholar-link:hover {
+    background: #3a3a3a; /* Dark grey on hover */
+    color: white;
+}
