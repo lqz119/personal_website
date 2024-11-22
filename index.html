@@ -6,24 +6,40 @@
     <meta name="description" content="Your Personal Website">
     <title>My Personal Website</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        function openTab(evt, tabName) {
+            const tabs = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            const tabLinks = document.getElementsByClassName("tab-link");
+            for (let i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Qizhi Lu</h1>
         <nav>
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a class="tab-link active" href="#" onclick="openTab(event, 'about')">About Me</a></li>
+                <li><a class="tab-link" href="#" onclick="openTab(event, 'research')">Research</a></li>
+                <li><a class="tab-link" href="#" onclick="openTab(event, 'courses')">Selected Courses</a></li>
+                <li><a class="tab-link" href="#" onclick="openTab(event, 'life')">My Life</a></li>
+                <li><a class="tab-link" href="#" onclick="openTab(event, 'contact')">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="about">
+        <section id="about" class="tab-content" style="display: block;">
             <h2>About Me</h2>
-            <p>Hello! I'm Qizhi(George) Lu. I am a Ph.D. student at the Aerospace Engineering school at Georgia Tech.</p>
+            <p>Hello! I'm Qizhi (George) Lu. I am a Ph.D. student at the Aerospace Engineering school at Georgia Tech.</p>
         </section>
-        <section id="research">
+        <section id="research" class="tab-content" style="display: none;">
             <h2>Research</h2>
             <p>Check out my work below:</p>
             <ul>
@@ -32,13 +48,25 @@
                 <li><a href="#">Project 3</a></li>
             </ul>
         </section>
-        <section id="contact">
+        <section id="courses" class="tab-content" style="display: none;">
+            <h2>Selected Courses</h2>
+            <ul>
+                <li>Advanced Aerospace Systems</li>
+                <li>Data Science and Machine Learning</li>
+                <li>Computational Fluid Dynamics</li>
+            </ul>
+        </section>
+        <section id="life" class="tab-content" style="display: none;">
+            <h2>My Life</h2>
+            <p>A brief personal story or hobbies could go here.</p>
+        </section>
+        <section id="contact" class="tab-content" style="display: none;">
             <h2>Contact Me</h2>
-            <p>Email: <a href="luqseven@gatech.edu">youremail@example.com</a></p>
+            <p>Email: <a href="mailto:luqseven@gatech.edu">luqseven@gatech.edu</a></p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 [Qizhi Lu]. All rights reserved.</p>
+        <p>&copy; 2024 Qizhi Lu. All rights reserved.</p>
     </footer>
 </body>
 </html>
