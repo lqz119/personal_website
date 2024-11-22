@@ -130,6 +130,7 @@ footer {
     line-height: 1.6;
     margin: 0.5em 0;
     color: #555;
+    text-align: justify;
 }
 
 .research-image {
@@ -137,7 +138,21 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 200px; /* Container width */
+    height: 150px;    /* Container height */
+    overflow: hidden; /* Prevents any overflow outside the container */
+    background: #f0f0f0; /* Optional: Adds a background color */
+    border-radius: 10px; /* Optional: Rounds the corners of the container */
 }
+
+.research-img {
+    max-width: 100%; /* Ensures the image width fits the container */
+    max-height: 100%; /* Ensures the image height fits the container */
+    object-fit: contain; /* Displays the entire image, scaled proportionally */
+    border-radius: 10px; /* Optional: Matches the rounded corners of the container */
+}
+
+
 
 .image-placeholder {
     width: 100%;
