@@ -100,3 +100,76 @@ footer {
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
     color: #f4f4f4;
 }
+
+
+/* Research Section */
+.research-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2em;
+    gap: 1.5em;
+    padding: 1.5em;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.research-content {
+    flex: 2;
+}
+
+.research-content h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0 0 0.5em 0;
+}
+
+.research-content p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 0.5em 0;
+    color: #555;
+}
+
+.research-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #ddd;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 150px;
+    color: #aaa;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.link-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #3a3a3a;
+    color: white;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.link-button:hover {
+    background-color: #555555;
+}
+
+.link-button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    color: #666666;
+}
