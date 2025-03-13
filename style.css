@@ -220,34 +220,41 @@ footer {
     color: white;
 }
 
-/* --- Education Section in About Me --- */
+/* Education Section - Card Style */
 .education {
-    margin-top: 1.5em;
+    margin-top: 2em;
     padding-top: 1em;
-    border-top: 1px solid #e0e0e0;
-}
-
-.education h3 {
-    font-size: 1.5em;
-    color: #3a3a3a;
-    margin-bottom: 0.5em;
-}
-
-.education-item {
+    border-top: 2px solid #e0e0e0;
+  }
+  
+  .education h3 {
+    font-size: 1.8em;
     margin-bottom: 1em;
-}
-
-.education-item h4 {
-    font-size: 1.2em;
-    margin: 0;
     color: #3a3a3a;
-}
-
-.education-item p {
-    margin: 0.2em 0 0;
+    text-align: left;
+  }
+  
+  .education-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .education-item h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #3a3a3a;
+  }
+  
+  .education-item p {
+    margin: 0.3em 0 0;
     font-size: 1em;
     color: #555;
-}
+  }
+  
 
 /* --- Mobile Responsive Adjustments --- */
 @media (max-width: 600px) {
