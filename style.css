@@ -33,6 +33,7 @@ header {
     color: #ffa07a; /* Subtle color touch */
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     margin: 0;
@@ -220,39 +221,68 @@ footer {
     color: white;
 }
 
-/* Education Section - Card Style */
+/* Education Section - Card Style (Left-Aligned) */
 .education {
     margin-top: 2em;
-    padding-top: 1em;
+    /* padding-top: 0.1em; */
     border-top: 2px solid #e0e0e0;
-  }
-  
-  .education h3 {
-    font-size: 1.8em;
-    margin-bottom: 1em;
-    color: #3a3a3a;
     text-align: left;
   }
   
+  /* Education Header */
+  .education h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.7em;
+    color: #3a3a3a;
+  }
+  
+  /* Each Education Item */
   .education-item {
     background: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 1em;
-    margin-bottom: 1em;
+    padding: 0.9em 1em 0.5em 1.2em; /* Less bottom padding: 0.5em */
+    margin-bottom: 1.2em; /* Reduced margin at the bottom */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
   
   .education-item h4 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1em; /* Slightly smaller title */
     color: #3a3a3a;
+    margin-bottom: 0.3em; /* Reduced spacing below the title */
   }
   
+  /* Paragraph Styling for Education Details */
   .education-item p {
-    margin: 0.3em 0 0;
-    font-size: 1em;
+    margin: 0.5em 0;       /* Reduced vertical spacing */
+    line-height: 1.2;      /* Slightly tighter line spacing */
+    font-size: 0.95em;     /* Adjust text size to taste */
     color: #555;
+  }
+  
+  /* Bullet Styling */
+  .ongoing::before,
+  .completed::before {
+    display: inline-block;
+    margin-right: 0.6em;
+    font-size: 0.8em;       /* Adjust bullet size */
+    vertical-align: middle; /* Align with text center */
+    position: relative;     /* Allows small top adjustment */
+    top: -1px;              /* Nudges bullet up for better alignment */
+  }
+  
+  /* Half-filled bullet (ongoing) - "◐" */
+  .ongoing::before {
+    content: "\25D0"; /* Half-filled circle symbol */
+    color: #333;      /* Dark grey */
+    font-size: 0.4em;
+  }
+  
+  /* Filled bullet (completed) - "•" */
+  .completed::before {
+    content: "\25CF"; /* Solid circle symbol */
+    color: #333;      /* Dark grey */
   }
   
 
