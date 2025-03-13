@@ -138,18 +138,17 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 200px; /* Container width */
-    height: 150px;    /* Container height */
-    overflow: hidden; /* Prevents any overflow outside the container */
-    background: #f0f0f0; /* Optional: Adds a background color */
-    border-radius: 10px; /* Optional: Rounds the corners of the container */
+    /* Remove fixed max-width and height */
+    padding: 5px;
+    background: #f0f0f0;
+    border-radius: 10px;
 }
 
 .research-img {
-    max-width: 100%; /* Ensures the image width fits the container */
-    max-height: 100%; /* Ensures the image height fits the container */
-    object-fit: contain; /* Displays the entire image, scaled proportionally */
-    border-radius: 10px; /* Optional: Matches the rounded corners of the container */
+    max-width: 100%;   /* Allow the image to shrink or grow */
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 
@@ -219,4 +218,69 @@ footer {
 .google-scholar-link:hover {
     background: #3a3a3a; /* Dark grey on hover */
     color: white;
+}
+
+/* --- Education Section in About Me --- */
+.education {
+    margin-top: 1.5em;
+    padding-top: 1em;
+    border-top: 1px solid #e0e0e0;
+}
+
+.education h3 {
+    font-size: 1.5em;
+    color: #3a3a3a;
+    margin-bottom: 0.5em;
+}
+
+.education-item {
+    margin-bottom: 1em;
+}
+
+.education-item h4 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #3a3a3a;
+}
+
+.education-item p {
+    margin: 0.2em 0 0;
+    font-size: 1em;
+    color: #555;
+}
+
+/* --- Mobile Responsive Adjustments --- */
+@media (max-width: 600px) {
+  /* Stack nav items if needed */
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+  }
+  
+  /* Reduce gap in about-header */
+  .about-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .about-header h2 {
+    font-size: 1.8em;
+  }
+  
+  .google-scholar-link {
+    padding: 0.3em 0.8em;
+    font-size: 0.8em;
+  }
+  
+  /* For research items, stack the image below the text */
+  .research-item {
+    flex-direction: column;
+  }
+  
+  .research-image {
+    width: 100%;
+    margin-top: 1em;
+  }
 }

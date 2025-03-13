@@ -1,132 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Qizhi Lu's Personal Website">
-    <title>Qizhi Lu</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        function openTab(evt, tabName) {
-            const tabs = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].style.display = "none";
-            }
-            const tabLinks = document.getElementsByClassName("tab-link");
-            for (let i = 0; i < tabLinks.length; i++) {
-                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Qizhi Lu's Personal Website">
+  <title>Qizhi Lu</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function openTab(evt, tabName) {
+      const tabs = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none";
+      }
+      const tabLinks = document.getElementsByClassName("tab-link");
+      for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="hero">
-            <h1>Qizhi Lu</h1>
-            <p class="tagline"> A science for an art's sake. </p>
+  <header>
+    <div class="hero">
+      <h1>Qizhi Lu</h1>
+      <p class="tagline"> A science for an art's sake. </p>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="tab-link active" href="#" onclick="openTab(event, 'about')">About Me</a></li>
+        <li><a class="tab-link" href="#" onclick="openTab(event, 'research')">Research</a></li>
+        <li><a class="tab-link" href="#" onclick="openTab(event, 'courses')">Selected Courses</a></li>
+        <li><a class="tab-link" href="#" onclick="openTab(event, 'life')">My Life</a></li>
+        <li><a class="tab-link" href="#" onclick="openTab(event, 'contact')">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <section id="about" class="tab-content" style="display: block;">
+      <div class="about-header">
+        <h2>About Me</h2>
+        <a href="https://scholar.google.com/citations?user=7_LWIh8AAAAJ&hl=en" target="_blank" class="google-scholar-link">Google Scholar</a>
+      </div>
+      <p>Hello! I'm Qizhi (George) Lu, a Ph.D. student at the Aerospace Engineering school at Georgia Tech.</p>
+      
+      <!-- Education Template -->
+      <div class="education">
+        <h3>Education</h3>
+        <div class="education-item">
+          <h4>Georgia Institute of Technology</h4>
+          <p>Ph.D. in Aerospace Engineering, Expected YYYY</p>
         </div>
-        <nav>
-            <ul>
-                <li><a class="tab-link active" href="#" onclick="openTab(event, 'about')">About Me</a></li>
-                <li><a class="tab-link" href="#" onclick="openTab(event, 'research')">Research</a></li>
-                <li><a class="tab-link" href="#" onclick="openTab(event, 'courses')">Selected Courses</a></li>
-                <li><a class="tab-link" href="#" onclick="openTab(event, 'life')">My Life</a></li>
-                <li><a class="tab-link" href="#" onclick="openTab(event, 'contact')">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+        <div class="education-item">
+          <h4>Your Undergraduate University</h4>
+          <p>B.Sc. in [Your Major], YYYY</p>
+        </div>
+        <!-- Add more education items as needed -->
+      </div>
+    </section>
 
-        <section id="about" class="tab-content" style="display: block;">
-            <div class="about-header">
-                <h2>About Me</h2>
-                <a href="https://scholar.google.com/citations?user=7_LWIh8AAAAJ&hl=en" target="_blank" class="google-scholar-link">Google Scholar</a>
-            </div>
-            <p>Hello! I'm Qizhi (George) Lu, a Ph.D. student at the Aerospace Engineering school at Georgia Tech.</p>
-        </section>
+    <section id="research" class="tab-content" style="display: none;">
+      <h2>Research</h2>
 
+      <!-- Scitech 2025 Paper -->
+      <div class="research-item">
+        <div class="research-content">
+          <h3>Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamic</h3>
+          <p><em>AIAA SciTech 2025</em></p>
+          <p>In-ground-effect (IGE) flight offers significant advantages in terms of fuel efficiency and stealth. This paper investigates the feasibility of IGE flight using predictive cost adaptive control (PCAC). As an indirect adaptive control extension of model predictive control, PCAC uses recursive least squares with variable-rate forgetting for online, closed-loop system identification. For 2D IGE flight of an airfoil over a sinusoidal wave surface, PCAC uses active flow control with either jet actuation or trailing-edge flap deflection to suppress the effect of unsteady aerodynamics without the need for a prior control-oriented model.</p>
+          <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2025-0033" target="_blank" class="link-button">Read Paper</a>
+        </div>
+        <div class="research-image">
+          <img src="images/Scitech2025.png" alt="Scitech 2025" class="research-img">
+        </div>
+      </div>
 
-        <section id="research" class="tab-content" style="display: none;">
-            <h2>Research</h2>
-        
-            <!-- Scitech 2025 Paper -->
-            <div class="research-item">
-                <div class="research-content">
-                    <h3>Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamic</h3>
-                    <p><em>AIAA SciTech 2025</em></p>
-                    <p>In-ground-effect (IGE) flight offers significant advantages in terms of fuel efficiency and stealth. This paper investigates the feasibility of IGE flight using predictive cost adaptive control (PCAC). As an indirect adaptive control extension of model predictive control, PCAC uses recursive least squares with variable-rate forgetting for online, closed-loop system identification. For 2D IGE flight of an airfoil over a sinusoidal wave surface, PCAC uses active flow control with either jet actuation or trailing-edge flap deflection to suppress the effect of unsteady aerodynamics without the need for a prior control-oriented model.</p>
-                    <a href="https://arc.aiaa.org/doi/abs/10.2514/6.2025-0033" target="_blank" class="link-button">Read Paper</a>
-                </div>
-                <div class="research-image">
-                    <img src="images/Scitech2025.png" alt="Scitech 2025" class="research-img">
-                </div>
-            </div>
-        
-            <!-- SPIE Paper -->
-            <div class="research-item">
-                <div class="research-content">
-                    <h3>A SmallSat mission study for STARLITE: superluminous tomographic atmospheric reconstruction with laser-beacons for imaging terrestrial exoplanets</h3>
-                    <p><em>Space Telescopes and Instrumentation 2024</em></p>
-                    <p>In the search for life in our galaxy, and for understanding the origins of our solar system, the direct imaging and characterization of Earth-like exoplanets is key. In a step towards achieving these goals, the Superluminous Tomographic Atmospheric Reconstruction with Laser-beacons for Imaging Terrestrial Exoplanets (STARLITE) mission uses five CubeSats in a highly elliptical orbit as artificial guide stars to enable tomographic reconstruction of the atmosphere for extreme multi-conjugate adaptive optics (MCAO). Through the use of current and next-generation extremely-large ground-based telescopes, the STARLITE constellation at its ∼350,000 km apogee can provide brighter than -10 magnitude artificial guide stars from a 10 cm launching telescope in a sub-arcminute field of view for up to an hour. Careful selection and design of the ∼760 nm on-board laser will allow O2 detection and characterization of exoplanet atmospheres. At a size of 12U, each satellite weighs only 19 kg and utilizes mostly commercially available off-the-shelf components to keep costs per satellite around $2M. In this paper, we will present the satellite mission concept and early system design for the STARLITE constellation.</p>
-                    <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13092/130922U/A-SmallSat-mission-study-for-STARLITE--superluminous-tomographic-atmospheric/10.1117/12.3018042.full" target="_blank" class="link-button">Read Paper</a>
-                </div>
-                <div class="research-image">
-                    <img src="images/SPIE2024.png" alt="SPIE 2024" class="research-img">
-                </div>
-            </div>
-        
-            <!-- ACC 2024 Paper  -->
-            <div class="research-item">
-                <div class="research-content">
-                    <h3>Data-Driven Model Predictive Control of Airfoil Flow Separation</h3>
-                    <p><em>American Control Conference 2024</em></p>
-                    <p>This paper numerically investigates the performance of active flow control based on adaptive model predictive control without prior analytical modeling of any kind. Recursive least squares with variable-rate forgetting is used for online closed-loop system identification. The identified model is then used for receding-horizon optimization based on quadratic programming. This technique is applied to an airfoil model simulated using computational fluid dynamics. Two cases are considered. In the first case, the tangential component of the flow velocity is commanded at the location of a single flow-velocity sensor. In the second case, an array of flow-velocity sensors is used to estimate the location of the flow-separation point, which is used to command the flow-separation point.</p>
-                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10644206" target="_blank" class="link-button">Read Paper</a>
-                </div>
-                <div class="research-image">
-                    <img src="images/ACC2024.png" alt="ACC 2024" class="research-img">
-                </div>
-            </div>
-        
-            <!-- Scitech 2024 Paper -->
-            <div class="research-item">
-                <div class="research-content">
-                    <h3>Data-Driven Retrospective Cost Adaptive Flow Control</h3>
-                    <p><em>AIAA SciTech 2024</em></p>
-                    <p>This paper focuses on active adaptive flow control. In particular, data-driven retrospective cost adaptive control (DDRCAC) is applied to several 2D internal flow-control problems. Unlike many data-driven control methods, DDRCAC requires no advance data collection and model pretraining. Instead, DDRCAC uses online closed-loop system identification, and thus the controller adapts from zero gains, that is, “cold-start” conditions. The user need only specify hyperparameters for learning and adaptation, which includes the model and controller orders as well as the hyperparameters for recursive least squares with variable-rate forgetting. These hyperparameters are selected based on nominal simulations of the fluid dynamics. Four flow-control scenarios are considered, namely, control of streamwise velocity within a laminar boundary layer in a duct; axial cylinder boundary layer in a duct; turbulence suppression in a duct with a backwards-facing step; and, finally, turbulence suppression in a duct with crossflow jets.</p>
-                    <a href="https://dsbaero.engin.umich.edu/wp-content/uploads/sites/441/2024/04/vander-schaaf-et-al-2024-data-driven-retrospective-cost-adaptive-flow-control.pdf" target="_blank" class="link-button">Read Paper</a>
-                </div>
-                <div class="research-image">
-                    <img src="images/Scitech2024.png" alt="Scitech 2024" class="research-img">
-                </div>
-            </div>
-        </section>
-        
-        <section id="courses" class="tab-content" style="display: none;">
-            <h2>Selected Courses</h2>
-            <ul>
-                <li>Advanced Aerospace Systems</li>
-                <li>Data Science and Machine Learning</li>
-                <li>Computational Fluid Dynamics</li>
-            </ul>
-        </section>
+      <!-- SPIE Paper -->
+      <div class="research-item">
+        <div class="research-content">
+          <h3>A SmallSat mission study for STARLITE: superluminous tomographic atmospheric reconstruction with laser-beacons for imaging terrestrial exoplanets</h3>
+          <p><em>Space Telescopes and Instrumentation 2024</em></p>
+          <p>In the search for life in our galaxy, and for understanding the origins of our solar system, the direct imaging and characterization of Earth-like exoplanets is key. In a step towards achieving these goals, the STARLITE mission uses five CubeSats in a highly elliptical orbit as artificial guide stars to enable tomographic reconstruction of the atmosphere for extreme multi-conjugate adaptive optics (MCAO). Through the use of current and next-generation extremely-large ground-based telescopes, the STARLITE constellation at its ∼350,000 km apogee can provide brighter than -10 magnitude artificial guide stars. </p>
+          <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13092/130922U/A-SmallSat-mission-study-for-STARLITE--superluminous-tomographic-atmospheric/10.1117/12.3018042.full" target="_blank" class="link-button">Read Paper</a>
+        </div>
+        <div class="research-image">
+          <img src="images/SPIE2024.png" alt="SPIE 2024" class="research-img">
+        </div>
+      </div>
 
-        <section id="life" class="tab-content" style="display: none;">
-            <h2>My Life</h2>
-            <p>I enjoy hiking, painting, and exploring different cuisines when not immersed in research.</p>
-        </section>
+      <!-- ACC 2024 Paper  -->
+      <div class="research-item">
+        <div class="research-content">
+          <h3>Data-Driven Model Predictive Control of Airfoil Flow Separation</h3>
+          <p><em>American Control Conference 2024</em></p>
+          <p>This paper numerically investigates the performance of active flow control based on adaptive model predictive control without prior analytical modeling. Recursive least squares with variable-rate forgetting is used for online closed-loop system identification. The identified model is then used for receding-horizon optimization based on quadratic programming. This technique is applied to an airfoil model simulated using computational fluid dynamics.</p>
+          <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10644206" target="_blank" class="link-button">Read Paper</a>
+        </div>
+        <div class="research-image">
+          <img src="images/ACC2024.png" alt="ACC 2024" class="research-img">
+        </div>
+      </div>
 
-        <section id="contact" class="tab-content" style="display: none;">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;">&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;</a></p>
-        </section>
-        
-                
-    </main>
-    <footer>
-        <p>&copy; 2024 Qizhi Lu. Tribute to my dream.</p>
-    </footer>
+      <!-- Scitech 2024 Paper -->
+      <div class="research-item">
+        <div class="research-content">
+          <h3>Data-Driven Retrospective Cost Adaptive Flow Control</h3>
+          <p><em>AIAA SciTech 2024</em></p>
+          <p>This paper focuses on active adaptive flow control. DDRCAC is applied to several 2D internal flow-control problems. Instead of advance data collection, it uses online closed-loop system identification so that the controller adapts from zero gains (cold-start conditions). Hyperparameters are selected based on nominal simulations of fluid dynamics.</p>
+          <a href="https://dsbaero.engin.umich.edu/wp-content/uploads/sites/441/2024/04/vander-schaaf-et-al-2024-data-driven-retrospective-cost-adaptive-flow-control.pdf" target="_blank" class="link-button">Read Paper</a>
+        </div>
+        <div class="research-image">
+          <img src="images/Scitech2024.png" alt="Scitech 2024" class="research-img">
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="tab-content" style="display: none;">
+      <h2>Selected Courses</h2>
+      <ul>
+        <li>Advanced Aerospace Systems</li>
+        <li>Data Science and Machine Learning</li>
+        <li>Computational Fluid Dynamics</li>
+      </ul>
+    </section>
+
+    <section id="life" class="tab-content" style="display: none;">
+      <h2>My Life</h2>
+      <p>I enjoy hiking, painting, and exploring different cuisines when not immersed in research.</p>
+    </section>
+
+    <section id="contact" class="tab-content" style="display: none;">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;">&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;</a></p>
+    </section>
+
+  </main>
+  <footer>
+    <p>&copy; 2024 Qizhi Lu. Tribute to my dream.</p>
+  </footer>
 </body>
 </html>
