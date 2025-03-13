@@ -277,6 +277,7 @@ footer {
     content: "\25D0"; /* Half-filled circle symbol */
     color: #333;      /* Dark grey */
     font-size: 0.4em;
+    margin-right: 1.1em;  /* Increase this value to indent the text further */
   }
   
   /* Filled bullet (completed) - "•" */
