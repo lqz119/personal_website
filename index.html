@@ -15,15 +15,17 @@
       margin: auto;
     }
     
-    /* Allow bubble text to wrap into multiple lines (2-3 lines max) */
+    /* Allow bubble text to wrap over multiple lines without splitting words.
+       Internal padding keeps text away from the bubble edge. */
     .skill {
       overflow: hidden;
-      word-wrap: break-word;
-      word-break: break-word;
+      white-space: normal;
+      word-break: normal;
+      overflow-wrap: normal;
       text-align: center;
-      /* Optional: set a line-height to control spacing */
       line-height: 1.2;
-      /* Remove white-space: nowrap to allow wrapping */
+      padding: 5px;
+      box-sizing: border-box;
     }
   </style>
   <script>
@@ -31,7 +33,7 @@
     function adjustBubbleFontSize(element) {
       let computedStyle = window.getComputedStyle(element);
       let fontSize = parseFloat(computedStyle.fontSize);
-      // Decrease font size until the text fits (check both width & height), but don't go below a minimum size.
+      // Decrease font size until both height and width fit, but not below 6px.
       while ((element.scrollHeight > element.offsetHeight || element.scrollWidth > element.offsetWidth) && fontSize > 6) {
         fontSize -= 1;
         element.style.fontSize = fontSize + "px";
@@ -43,7 +45,7 @@
       const containerWidth = container.offsetWidth;
       const containerHeight = container.offsetHeight;
       
-      // Padding to keep circles away from the edges.
+      // Padding to keep circles away from the container edges.
       const padding = 20;
       const availableWidth = containerWidth - 2 * padding;
       const availableHeight = containerHeight - 2 * padding;
@@ -70,7 +72,7 @@
       
       skills.forEach(skill => {
         const level = parseInt(skill.getAttribute("data-level")) || 1;
-        // Larger circles for higher levels (closer to center) and smaller for lower levels.
+        // Larger circles (higher levels) are placed closer to the center; smaller ones farther out.
         const size = minSize + ((level - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize);
         skill.style.width = size + "px";
         skill.style.height = size + "px";
