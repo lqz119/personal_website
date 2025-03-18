@@ -14,8 +14,30 @@
       height: 600px; /* Extended canvas height */
       margin: auto;
     }
+    
+    /* Allow bubble text to wrap into multiple lines (2-3 lines max) */
+    .skill {
+      overflow: hidden;
+      word-wrap: break-word;
+      word-break: break-word;
+      text-align: center;
+      /* Optional: set a line-height to control spacing */
+      line-height: 1.2;
+      /* Remove white-space: nowrap to allow wrapping */
+    }
   </style>
   <script>
+    // Adjust font size if text overflows the bubble.
+    function adjustBubbleFontSize(element) {
+      let computedStyle = window.getComputedStyle(element);
+      let fontSize = parseFloat(computedStyle.fontSize);
+      // Decrease font size until the text fits (check both width & height), but don't go below a minimum size.
+      while ((element.scrollHeight > element.offsetHeight || element.scrollWidth > element.offsetWidth) && fontSize > 6) {
+        fontSize -= 1;
+        element.style.fontSize = fontSize + "px";
+      }
+    }
+    
     function positionSkills() {
       const container = document.querySelector(".skills-container");
       const containerWidth = container.offsetWidth;
@@ -48,12 +70,14 @@
       
       skills.forEach(skill => {
         const level = parseInt(skill.getAttribute("data-level")) || 1;
-        // Larger circles for higher levels (closer to level 10) and smaller for lower levels.
+        // Larger circles for higher levels (closer to center) and smaller for lower levels.
         const size = minSize + ((level - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize);
         skill.style.width = size + "px";
         skill.style.height = size + "px";
+        // Set an initial font size relative to the bubble size.
+        skill.style.fontSize = (size / 5) + "px";
         
-        // Compute initial radial distance: level 10 gets r = 0 (center), level 1 gets r = maxRadius.
+        // Compute initial radial distance: level 10 at center, level 1 at maxRadius.
         const r = ((maxLevel - level) / (maxLevel - minLevel)) * maxRadius;
         let x = centerX + r * Math.cos(angle) - size / 2;
         let y = centerY + r * Math.sin(angle) - size / 2;
@@ -70,11 +94,9 @@
       });
       
       // Collision resolution: ensure bubbles don't overlap.
-      const gap = 5; // Fixed gap between circles
       const iterations = 200; // More iterations for smoother separation
       
       for (let iter = 0; iter < iterations; iter++) {
-        // Resolve overlapping pairs.
         for (let i = 0; i < n; i++) {
           for (let j = i + 1; j < n; j++) {
             const bubbleA = bubbles[i];
@@ -86,11 +108,12 @@
             const dx = bx - ax;
             const dy = by - ay;
             const distance = Math.sqrt(dx * dx + dy * dy);
+            // Random gap between 2 and 5 pixels.
+            const gap = Math.random() * 3 + 2;
             const minDist = bubbleA.radius + bubbleB.radius + gap;
             if (distance < minDist) {
               const overlap = (minDist - distance) / 2;
               if (distance === 0) {
-                // Push in a random direction if exactly overlapping.
                 const randomAngle = Math.random() * 2 * Math.PI;
                 bubbleA.x -= overlap * Math.cos(randomAngle);
                 bubbleA.y -= overlap * Math.sin(randomAngle);
@@ -107,9 +130,9 @@
             }
           }
         }
-        // For large (high-level) circles, apply a slight pull toward the center.
+        // Apply a slight center pull for large (high-level) bubbles.
         bubbles.forEach(bubble => {
-          if (bubble.level >= 9) { // Adjust threshold as desired.
+          if (bubble.level >= 9) {
             const bubbleCenterX = bubble.x + bubble.radius;
             const bubbleCenterY = bubble.y + bubble.radius;
             const deltaX = centerX - bubbleCenterX;
@@ -120,7 +143,7 @@
         });
       }
       
-      // Enforce boundaries within the container.
+      // Enforce boundaries and update positions.
       bubbles.forEach(bubble => {
         bubble.x = Math.max(padding, bubble.x);
         bubble.y = Math.max(padding, bubble.y);
@@ -130,9 +153,12 @@
         bubble.element.style.left = bubble.x + "px";
         bubble.element.style.top = bubble.y + "px";
         
-        // Set background color based on level (hue: red for low level to green for high).
+        // Set background color based on level (red for low, green for high).
         const hue = ((bubble.level - minLevel) / (maxLevel - minLevel)) * 120;
         bubble.element.style.background = `hsl(${hue}, 70%, 50%)`;
+        
+        // Adjust font size if the text inside overflows the bubble.
+        adjustBubbleFontSize(bubble.element);
       });
     }
     
@@ -149,7 +175,6 @@
       evt.currentTarget.className += " active";
       
       if (tabName === "skills") {
-        // Delay to ensure the container is rendered.
         setTimeout(positionSkills, 50);
       }
     }
@@ -197,7 +222,6 @@
         </div>
       </div>
     </section>
-
     <section id="research" class="tab-content" style="display: none;">
       <div class="research-item">
         <div class="research-content">
