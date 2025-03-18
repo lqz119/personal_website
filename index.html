@@ -139,11 +139,33 @@
         <!-- <h2>Skills & Experience</h2> -->
         <div class="skills-container">
           <!-- For each skill, set a data-level attribute from 1 to 10 -->
-          <div class="skill" data-level="8">Python</div>
-          <div class="skill" data-level="6">JavaScript</div>
-          <div class="skill" data-level="9">HTML/CSS</div>
-          <div class="skill" data-level="4">C++</div>
-          <div class="skill" data-level="5">SQL</div>
+          <!-- Engineering -->
+          <div class="skill" data-level="10">Linear Control Theory</div>
+          <div class="skill" data-level="10">Nonlinear Control Theory</div>
+          <div class="skill" data-level="6">Discrete Control</div>
+          <div class="skill" data-level="7">Optimal Control</div>
+          <div class="skill" data-level="7">Adaptive Control</div>
+          <div class="skill" data-level="7">Model Predictive Control</div>
+          <div class="skill" data-level="10">Matlab</div>
+          <div class="skill" data-level="6">Fluent</div>
+          <div class="skill" data-level="5">NX</div>
+          <div class="skill" data-level="5">Robotics</div>
+          <div class="skill" data-level="6">Computational Fluid Dynamics</div>
+
+
+          <!-- Math -->
+          <div class="skill" data-level="7">Real Analysis</div>
+          <div class="skill" data-level="5">Differential Geometry</div>
+
+          <!-- Computer Science  -->
+          <div class="skill" data-level="9">Python</div>
+          <div class="skill" data-level="4">Computer Vision</div>
+          <div class="skill" data-level="4">Deep Learning</div>
+          <div class="skill" data-level="6">C/C++</div>
+
+
+
+
           <!-- Add more skills as needed -->
         </div>
       </section>      
@@ -162,20 +184,58 @@
   <footer>
     <p>&copy; 2024 Qizhi Lu. Tribute to my dream.</p>
   </footer>
+
+  <!-- Skills Related -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      const minSize = 40;  // Minimum bubble size in pixels
-      const maxSize = 120; // Maximum bubble size in pixels
+      const container = document.querySelector(".skills-container");
+      const containerWidth = container.offsetWidth;
+      const containerHeight = container.offsetHeight;
+      const centerX = containerWidth / 2;
+      const centerY = containerHeight / 2;
+      
+      const maxLevel = 10;
+      const minLevel = 1;
+      const maxSize = 120; // Maximum bubble size in pixels (for level 10)
+      const minSize = 40;  // Minimum bubble size in pixels (for level 1)
+      
+      // Maximum radius from the center – lower-level skills are farther out.
+      // Here we subtract some margin (e.g. 50px) so bubbles don't go out-of-bounds.
+      const maxRadius = Math.min(containerWidth, containerHeight) / 2 - 50; 
+      
       const skills = document.querySelectorAll(".skill");
+      // We'll distribute the bubbles evenly around the circle.
+      const angleStep = (2 * Math.PI) / skills.length;
+      let angle = 0;
       
       skills.forEach(skill => {
-        const level = parseInt(skill.getAttribute("data-level"));
-        const validLevel = isNaN(level) ? 1 : level;
-        const size = minSize + ((validLevel - 1) / 9) * (maxSize - minSize);
+        const level = parseInt(skill.getAttribute("data-level")) || 1;
+        
+        // Calculate bubble size proportional to level.
+        const size = minSize + ((level - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize);
         skill.style.width = size + "px";
         skill.style.height = size + "px";
+        
+        // Calculate radius: higher-level skills (closer to 10) get a smaller radius (closer to center)
+        const radius = ((maxLevel - level) / (maxLevel - minLevel)) * maxRadius;
+        
+        // Use evenly distributed angles.
+        const currentAngle = angle;
+        angle += angleStep;
+        
+        // Convert polar coordinates to Cartesian; subtract half the bubble size to center it.
+        const x = centerX + radius * Math.cos(currentAngle) - size / 2;
+        const y = centerY + radius * Math.sin(currentAngle) - size / 2;
+        skill.style.left = x + "px";
+        skill.style.top = y + "px";
+        
+        // Set background color based on level.
+        // For example, map level to hue: level 1 is red (0°) and level 10 is green (120°).
+        const hue = ((level - minLevel) / (maxLevel - minLevel)) * 120;
+        skill.style.background = `hsl(${hue}, 70%, 50%)`;
       });
     });
-  </script>
+    </script>
+    
 </body>
 </html>
