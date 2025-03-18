@@ -6,52 +6,136 @@
   <meta name="description" content="Qizhi Lu's Personal Website">
   <title>Qizhi Lu</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Extend the skills container canvas */
+    .skills-container {
+      position: relative;
+      width: 100%;
+      height: 600px; /* Extended canvas height */
+      margin: auto;
+    }
+  </style>
   <script>
-    // Function to position the skill bubbles
     function positionSkills() {
       const container = document.querySelector(".skills-container");
       const containerWidth = container.offsetWidth;
       const containerHeight = container.offsetHeight;
-      const centerX = containerWidth / 2;
-      const centerY = containerHeight / 2;
       
+      // Padding to keep circles away from the edges.
+      const padding = 20;
+      const availableWidth = containerWidth - 2 * padding;
+      const availableHeight = containerHeight - 2 * padding;
+      const centerX = padding + availableWidth / 2;
+      const centerY = padding + availableHeight / 2;
+      
+      // Circle size limits.
       const maxLevel = 10;
       const minLevel = 1;
-      const maxSize = 120; // Maximum bubble size in pixels (for level 10)
-      const minSize = 40;  // Minimum bubble size in pixels (for level 1)
+      const maxSize = 120; // For level 10
+      const minSize = 40;  // For level 1
       
-      // Maximum radius from the center – subtract a margin so bubbles don't go out-of-bounds.
-      const maxRadius = Math.min(containerWidth, containerHeight) / 2 - 50; 
+      // Leave a margin from container boundaries.
+      const boundaryMargin = 30;
+      const maxRadius = Math.min(availableWidth, availableHeight) / 2 - boundaryMargin;
       
+      // Get all bubbles and compute initial placement using polar coordinates.
       const skills = document.querySelectorAll(".skill");
-      const angleStep = (2 * Math.PI) / skills.length;
+      const n = skills.length;
+      const angleStep = (2 * Math.PI) / n;
       let angle = 0;
+      
+      const bubbles = [];
       
       skills.forEach(skill => {
         const level = parseInt(skill.getAttribute("data-level")) || 1;
-        
-        // Calculate bubble size proportional to the level.
+        // Larger circles for higher levels (closer to level 10) and smaller for lower levels.
         const size = minSize + ((level - minLevel) / (maxLevel - minLevel)) * (maxSize - minSize);
         skill.style.width = size + "px";
         skill.style.height = size + "px";
         
-        // Higher-level skills (closer to 10) get a smaller radius (closer to center).
-        const radius = ((maxLevel - level) / (maxLevel - minLevel)) * maxRadius;
-        const currentAngle = angle;
+        // Compute initial radial distance: level 10 gets r = 0 (center), level 1 gets r = maxRadius.
+        const r = ((maxLevel - level) / (maxLevel - minLevel)) * maxRadius;
+        let x = centerX + r * Math.cos(angle) - size / 2;
+        let y = centerY + r * Math.sin(angle) - size / 2;
         angle += angleStep;
         
-        // Convert polar coordinates to Cartesian coordinates, adjusting for the bubble size.
-        const x = centerX + radius * Math.cos(currentAngle) - size / 2;
-        const y = centerY + radius * Math.sin(currentAngle) - size / 2;
-        skill.style.left = x + "px";
-        skill.style.top = y + "px";
+        bubbles.push({
+          element: skill,
+          x: x,
+          y: y,
+          size: size,
+          radius: size / 2,
+          level: level
+        });
+      });
+      
+      // Collision resolution: ensure bubbles don't overlap.
+      const gap = 5; // Fixed gap between circles
+      const iterations = 200; // More iterations for smoother separation
+      
+      for (let iter = 0; iter < iterations; iter++) {
+        // Resolve overlapping pairs.
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            const bubbleA = bubbles[i];
+            const bubbleB = bubbles[j];
+            const ax = bubbleA.x + bubbleA.radius;
+            const ay = bubbleA.y + bubbleA.radius;
+            const bx = bubbleB.x + bubbleB.radius;
+            const by = bubbleB.y + bubbleB.radius;
+            const dx = bx - ax;
+            const dy = by - ay;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const minDist = bubbleA.radius + bubbleB.radius + gap;
+            if (distance < minDist) {
+              const overlap = (minDist - distance) / 2;
+              if (distance === 0) {
+                // Push in a random direction if exactly overlapping.
+                const randomAngle = Math.random() * 2 * Math.PI;
+                bubbleA.x -= overlap * Math.cos(randomAngle);
+                bubbleA.y -= overlap * Math.sin(randomAngle);
+                bubbleB.x += overlap * Math.cos(randomAngle);
+                bubbleB.y += overlap * Math.sin(randomAngle);
+              } else {
+                const offsetX = (dx / distance) * overlap;
+                const offsetY = (dy / distance) * overlap;
+                bubbleA.x -= offsetX;
+                bubbleA.y -= offsetY;
+                bubbleB.x += offsetX;
+                bubbleB.y += offsetY;
+              }
+            }
+          }
+        }
+        // For large (high-level) circles, apply a slight pull toward the center.
+        bubbles.forEach(bubble => {
+          if (bubble.level >= 9) { // Adjust threshold as desired.
+            const bubbleCenterX = bubble.x + bubble.radius;
+            const bubbleCenterY = bubble.y + bubble.radius;
+            const deltaX = centerX - bubbleCenterX;
+            const deltaY = centerY - bubbleCenterY;
+            bubble.x += deltaX * 0.05;
+            bubble.y += deltaY * 0.05;
+          }
+        });
+      }
+      
+      // Enforce boundaries within the container.
+      bubbles.forEach(bubble => {
+        bubble.x = Math.max(padding, bubble.x);
+        bubble.y = Math.max(padding, bubble.y);
+        bubble.x = Math.min(containerWidth - padding - bubble.size, bubble.x);
+        bubble.y = Math.min(containerHeight - padding - bubble.size, bubble.y);
         
-        // Set background color based on level (0° = red, 120° = green).
-        const hue = ((level - minLevel) / (maxLevel - minLevel)) * 120;
-        skill.style.background = `hsl(${hue}, 70%, 50%)`;
+        bubble.element.style.left = bubble.x + "px";
+        bubble.element.style.top = bubble.y + "px";
+        
+        // Set background color based on level (hue: red for low level to green for high).
+        const hue = ((bubble.level - minLevel) / (maxLevel - minLevel)) * 120;
+        bubble.element.style.background = `hsl(${hue}, 70%, 50%)`;
       });
     }
-
+    
     function openTab(evt, tabName) {
       const tabs = document.getElementsByClassName("tab-content");
       for (let i = 0; i < tabs.length; i++) {
@@ -64,8 +148,8 @@
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
       
-      // If the Skills tab is activated, reposition the bubbles after a short delay.
       if (tabName === "skills") {
+        // Delay to ensure the container is rendered.
         setTimeout(positionSkills, 50);
       }
     }
