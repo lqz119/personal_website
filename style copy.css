@@ -294,8 +294,8 @@ footer {
   }
 
   /* --------------------------------------------------------------- */
-/* Skills & Experience Section */
-#skills {
+  /* Skills & Experience Section */
+  #skills {
     margin-top: 2em;
     padding: 1em;
   }
@@ -311,7 +311,7 @@ footer {
   .skills-container {
     position: relative;
     width: 100%;
-    height: 400px; /* Fixed height for proper dimension calculation */
+    height: 400px; /* Adjust as needed */
     margin: auto;
   }
   
@@ -328,11 +328,12 @@ footer {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
-  
+    
   .skill:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
+  
   
   
 
