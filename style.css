@@ -103,6 +103,8 @@ footer {
 }
 
 
+
+/* --------------------------------------------------------------- */
 /* Research Section */
 .research-item {
     display: flex;
@@ -191,6 +193,7 @@ footer {
 
 
 
+/* --------------------------------------------------------------- */
 /* ABOUT ME */
 .about-header {
     display: flex; /* Align items horizontally */
@@ -221,6 +224,10 @@ footer {
     color: white;
 }
 
+
+
+
+/* --------------------------------------------------------------- */
 /* Education Section - Card Style (Left-Aligned) */
 .education {
     margin-top: 2em;
@@ -285,8 +292,49 @@ footer {
     content: "\25CF"; /* Solid circle symbol */
     color: #333;      /* Dark grey */
   }
+
+  /* --------------------------------------------------------------- */
+  /* Skills & Experience Section */
+#skills {
+    margin-top: 2em;
+    padding: 1em;
+  }
+  
+  #skills h2 {
+    font-size: 2em;
+    color: #3a3a3a;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .skill {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .skill:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
   
 
+  /* --------------------------------------------------------------- */
 /* --- Mobile Responsive Adjustments --- */
 @media (max-width: 600px) {
   /* Stack nav items if needed */

@@ -31,7 +31,8 @@
       <ul>
         <li><a class="tab-link active" href="#" onclick="openTab(event, 'about')">About Me</a></li>
         <li><a class="tab-link" href="#" onclick="openTab(event, 'research')">Research</a></li>
-        <li><a class="tab-link" href="#" onclick="openTab(event, 'courses')">Selected Courses</a></li>
+        <!-- <li><a class="tab-link" href="#" onclick="openTab(event, 'courses')">Selected Courses</a></li> -->
+        <li><a class="tab-link" href="#" onclick="openTab(event, 'skills')">Skills</a></li>
         <li><a class="tab-link" href="#" onclick="openTab(event, 'life')">My Life</a></li>
         <li><a class="tab-link" href="#" onclick="openTab(event, 'contact')">Contact</a></li>
       </ul>
@@ -47,7 +48,7 @@
       <p>Hello! I'm Qizhi (George) Lu, a Ph.D. student at the Aerospace Engineering school at Georgia Tech.</p>
       
 
-      <!-- Education Template -->
+      <!-- Education Section -->
       <div class="education">
         <h3>Education</h3>
         <div class="education-item">
@@ -69,7 +70,7 @@
     </section>
 
     <section id="research" class="tab-content" style="display: none;">
-      <h2>Research</h2>
+      <!-- <h2>Research</h2> -->
 
       <!-- Scitech 2025 Paper -->
       <div class="research-item">
@@ -124,22 +125,36 @@
       </div>
     </section>
 
-    <section id="courses" class="tab-content" style="display: none;">
+    <!-- <section id="courses" class="tab-content" style="display: none;">
       <h2>Selected Courses</h2>
       <ul>
         <li>Advanced Aerospace Systems</li>
         <li>Data Science and Machine Learning</li>
         <li>Computational Fluid Dynamics</li>
       </ul>
-    </section>
+    </section> -->
+
+    
+    <section id="skills" class="tab-content" style="display: none;">
+        <!-- <h2>Skills & Experience</h2> -->
+        <div class="skills-container">
+          <!-- For each skill, set a data-level attribute from 1 to 10 -->
+          <div class="skill" data-level="8">Python</div>
+          <div class="skill" data-level="6">JavaScript</div>
+          <div class="skill" data-level="9">HTML/CSS</div>
+          <div class="skill" data-level="4">C++</div>
+          <div class="skill" data-level="5">SQL</div>
+          <!-- Add more skills as needed -->
+        </div>
+      </section>      
 
     <section id="life" class="tab-content" style="display: none;">
-      <h2>My Life</h2>
+      <!-- <h2>My Life</h2> -->
       <p>I enjoy hiking, painting, and exploring different cuisines when not immersed in research.</p>
     </section>
 
     <section id="contact" class="tab-content" style="display: none;">
-      <h2>Contact Me</h2>
+      <!-- <h2>Contact Me</h2> -->
       <p>Email: <a href="mailto:&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;">&#108;&#117;&#113;&#115;&#101;&#118;&#101;&#110;&#64;&#103;&#97;&#116;&#101;&#99;&#104;&#46;&#101;&#100;&#117;</a></p>
     </section>
 
@@ -147,5 +162,20 @@
   <footer>
     <p>&copy; 2024 Qizhi Lu. Tribute to my dream.</p>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const minSize = 40;  // Minimum bubble size in pixels
+      const maxSize = 120; // Maximum bubble size in pixels
+      const skills = document.querySelectorAll(".skill");
+      
+      skills.forEach(skill => {
+        const level = parseInt(skill.getAttribute("data-level"));
+        const validLevel = isNaN(level) ? 1 : level;
+        const size = minSize + ((validLevel - 1) / 9) * (maxSize - minSize);
+        skill.style.width = size + "px";
+        skill.style.height = size + "px";
+      });
+    });
+  </script>
 </body>
 </html>
