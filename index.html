@@ -55,25 +55,72 @@
       <div class="container">
         <div class="section-heading">
           <div><p class="eyebrow">01 / Selected work</p><h2 id="research-title">Research in motion.</h2></div>
-          <p>Learning from data.<br>Controlling complex systems.</p>
+          <p>Stability, feedback, and optimal control.<br>From theory to aerospace systems.</p>
         </div>
         <div class="publications">
+        <article class="publication publication--comparison" aria-labelledby="paper-fixed-time-stabilization">
+          <div class="publication-copy">
+            <p class="publication-meta"><span class="publication-number">01</span><span>IEEE Conference on Decision and Control (CDC) · 2026</span><span class="publication-status publication-status--accepted">Accepted</span></p>
+            <h3 id="paper-fixed-time-stabilization">Fixed Time Stabilization of Nonlinear Dynamical Systems</h3>
+            <p class="publication-authors"><strong>Qizhi Lu</strong> and Wassim M. Haddad</p>
+            <p class="publication-summary">A control Lyapunov framework for fixed-time stabilization of nonlinear systems. Constructs a universal feedback controller for control-affine systems, characterizes its continuity, and establishes inverse optimality for a nonlinear, nonquadratic performance functional.</p>
+            <p class="topics">Fixed-time stabilization · Control Lyapunov functions · Inverse optimality</p>
+            <div class="publication-actions"><details><summary>Abstract</summary><p>In this paper, we develop a control Lyapunov function framework for fixed time stabilization of nonlinear dynamical systems. First, we present sufficient Lyapunov conditions for fixed time stability of nonlinear autonomous systems on a prescribed domain and establish a converse Lyapunov theorem guaranteeing the existence of a proper Lyapunov function satisfying a new scalar differential inequality. Next, we introduce the notion of a fixed-time control Lyapunov function for controlled nonlinear systems and construct a feedback fixed-time controller for affine in the control systems. In particular, we provide a characterization for a fixed time control Lyapunov function for affine systems that enables the construction of a universal fixed time stabilizing feedback controller and present necessary and sufficient conditions for continuity of the controller. Finally, we show that the proposed feedback control law is inverse optimal with respect to a meaningful nonlinear-nonquadratic performance functional.</p></details></div>
+            <p class="publication-notice">Publication pending. The paper link will be available soon after the conference presentation.</p>
+          </div>
+          <div class="comparison-figures" aria-label="Reproduced and proposed feedback control results">
+            <figure class="publication-figure comparison-figure">
+              <a href="images/cdc2026-reproduced.png" aria-label="View full-size reproduced controller result">
+                <img src="images/cdc2026-reproduced.png" alt="Reproduced result from Lopez-Ramirez and colleagues, showing closed-loop state norm and control signal for four initial conditions" width="1703" height="745" loading="lazy" decoding="async">
+              </a>
+              <figcaption><strong>Reproduced result</strong><span>Controller from Lopez-Ramirez et al. (2019). Closed-loop state norm and control signal.</span></figcaption>
+            </figure>
+            <figure class="publication-figure comparison-figure">
+              <a href="images/cdc2026-proposed.png" aria-label="View full-size result for our proposed controller">
+                <img src="images/cdc2026-proposed.png" alt="Our proposed feedback controller result, showing closed-loop state norm and control signal for the same four initial conditions" width="1703" height="745" loading="lazy" decoding="async">
+              </a>
+              <figcaption><strong>Our result</strong><span>Proposed feedback controller. Closed-loop state norm and control signal.</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="publication publication--journal" aria-labelledby="paper-fixed-time-stability">
+          <div class="publication-copy">
+            <p class="publication-meta"><span class="publication-number">02</span><span>International Journal of Systems Science · 2026</span><span class="publication-status">Published</span></p>
+            <h3 id="paper-fixed-time-stability">Fixed Time Stability of Continuous Nonautonomous Systems</h3>
+            <p class="publication-authors"><strong>Qizhi Lu</strong>, Wassim M. Haddad, and Kriti Verma</p>
+            <p class="publication-summary">Extends fixed-time and uniform fixed-time stability theory to continuous time-varying systems. Lyapunov and converse Lyapunov theorems clarify how settling-time regularity constrains the regularity of Lyapunov functions.</p>
+            <p class="topics">Fixed-time stability · Nonautonomous systems · Lyapunov theory</p>
+            <div class="publication-actions">
+              <a class="text-link" href="https://doi.org/10.1080/00207721.2026.2646952">Read journal paper <span aria-hidden="true">↗</span></a>
+              <details><summary>Abstract</summary><p>In this paper, we develop fixed time and uniform fixed time stability theorems for nonlinear time-varying systems. Specifically, we provide Lyapunov and converse Lyapunov theorems for fixed time stability of continuous nonautonomous systems using Lyapunov functions that satisfy scalar differential inequalities. Furthermore, we show that the regularity of the Lyapunov function is inherently linked to that of the system settling time function. As a result, a converse Lyapunov theorem is presented that can guarantee only the existence of continuous Lyapunov functions. Finally, several illustrative numerical examples are provided to highlight some of the nuances between time-invariant and time-varying fixed time stability theory.</p></details>
+            </div>
+          </div>
+          <figure class="publication-figure publication-figure--captioned">
+            <a href="images/fixed-time-trajectories.png" aria-label="View full-size fixed-time stability trajectories">
+              <img src="images/fixed-time-trajectories.png" alt="State trajectories for different initial conditions converge to zero before the dashed predicted settling-time bound of 3.086 seconds" width="1353" height="668" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Example trajectories from different initial conditions. The dashed line marks the predicted settling-time bound. <span aria-hidden="true">↗</span></figcaption>
+          </figure>
+        </article>
+
         <article class="publication" aria-labelledby="paper-1">
           <div class="publication-copy">
-            <p class="publication-meta"><span class="publication-number">01</span> AIAA SciTech 2025</p>
-            <h3 id="paper-1">Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamic</h3>
+            <p class="publication-meta"><span class="publication-number">03</span> AIAA SciTech · 2025 <span class="publication-status">Published</span></p>
+            <h3 id="paper-1">Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamics</h3>
+            <p class="publication-authors">Jacob C. Vander Schaaf, <strong>Qizhi Lu</strong>, Harsh Kumar, Baris Ozmadenci, Krzysztof J. Fidkowski, and Dennis S. Bernstein</p>
             <p class="publication-summary">Adaptive control for flight close to a moving surface. Online system identification and active flow control address unsteady aerodynamics without a prior control-oriented model.</p>
             <p class="topics">Adaptive control · Aerodynamics</p>
             <div class="publication-actions">
               <a class="text-link" href="https://arc.aiaa.org/doi/abs/10.2514/6.2025-0033">Read paper <span aria-hidden="true">↗</span></a>
               <details>
-                <summary>Full description</summary>
+                <summary>Abstract</summary>
                 <p>In-ground-effect (IGE) flight offers significant advantages in terms of fuel efficiency and stealth. This paper investigates the feasibility of IGE flight using predictive cost adaptive control (PCAC). As an indirect adaptive control extension of model predictive control, PCAC uses recursive least squares with variable-rate forgetting for online, closed-loop system identification. For 2D IGE flight of an airfoil over a sinusoidal wave surface, PCAC uses active flow control with either jet actuation or trailing-edge flap deflection to suppress the effect of unsteady aerodynamics without the need for a prior control-oriented model.</p>
               </details>
             </div>
           </div>
           <figure class="publication-figure">
-            <a href="images/Scitech2025.png" aria-label="View full-size figure for Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamic">
+            <a href="images/Scitech2025.png" aria-label="View full-size figure for Predictive Cost Adaptive Control of In-Ground-Effect Flight using Active Flow Control with Unmodeled, Unsteady Aerodynamics">
               <img src="images/Scitech2025.png" alt="Research figure for predictive cost adaptive control of in-ground-effect flight" loading="lazy" decoding="async">
             </a>
             <figcaption>Research figure <span aria-hidden="true">↗</span></figcaption>
@@ -82,14 +129,15 @@
 
         <article class="publication" aria-labelledby="paper-2">
           <div class="publication-copy">
-            <p class="publication-meta"><span class="publication-number">02</span> Space Telescopes and Instrumentation 2024</p>
+            <p class="publication-meta"><span class="publication-number">04</span> SPIE Space Telescopes and Instrumentation · 2024 <span class="publication-status">Published</span></p>
             <h3 id="paper-2">A SmallSat mission study for STARLITE: superluminous tomographic atmospheric reconstruction with laser-beacons for imaging terrestrial exoplanets</h3>
+            <p class="publication-authors">Adam B. Johnson, Ashley Padres, Ryan Hughes, Carmine Buonagura, Zane Chapman, Alexia Kubas, Veronica Hegelein, Ishan Mishra, Adler Smith, Abu Taqui Md Tahsin, Akshiti Parashar, Rafid Bendimerad, Deemo Chen, <strong>Qizhi Lu</strong>, Asterios A. Kounios, Devin Desilva, Verena Padres, James Lloyd, Dmitry Savransky, Joshua Umansky-Castro, Andrew van Paridon, and Elaine Petro</p>
             <p class="publication-summary">A CubeSat mission concept for imaging terrestrial exoplanets. Five artificial guide stars support atmospheric reconstruction for ground-based telescopes.</p>
             <p class="topics">Mission design · Space systems</p>
             <div class="publication-actions">
               <a class="text-link" href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13092/130922U/A-SmallSat-mission-study-for-STARLITE--superluminous-tomographic-atmospheric/10.1117/12.3018042.full">Read paper <span aria-hidden="true">↗</span></a>
               <details>
-                <summary>Full description</summary>
+                <summary>Abstract</summary>
                 <p>In the search for life in our galaxy, and for understanding the origins of our solar system, the direct imaging and characterization of Earth-like exoplanets is key. In a step towards achieving these goals, the STARLITE mission uses five CubeSats in a highly elliptical orbit as artificial guide stars to enable tomographic reconstruction of the atmosphere for extreme multi-conjugate adaptive optics (MCAO). Through the use of current and next-generation extremely-large ground-based telescopes, the STARLITE constellation at its ∼350,000 km apogee can provide brighter than -10 magnitude artificial guide stars.</p>
               </details>
             </div>
@@ -104,14 +152,15 @@
 
         <article class="publication" aria-labelledby="paper-3">
           <div class="publication-copy">
-            <p class="publication-meta"><span class="publication-number">03</span> American Control Conference 2024</p>
+            <p class="publication-meta"><span class="publication-number">05</span> American Control Conference (ACC) · 2024 <span class="publication-status">Published</span></p>
             <h3 id="paper-3">Data-Driven Model Predictive Control of Airfoil Flow Separation</h3>
+            <p class="publication-authors">Jacob C. Vander Schaaf, <strong>Qizhi Lu</strong>, Krzysztof J. Fidkowski, and Dennis S. Bernstein</p>
             <p class="publication-summary">Adaptive model predictive control applied to airfoil flow separation. The controller learns from closed-loop data and is evaluated with computational fluid dynamics.</p>
             <p class="topics">Model predictive control · Fluid dynamics</p>
             <div class="publication-actions">
               <a class="text-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10644206">Read paper <span aria-hidden="true">↗</span></a>
               <details>
-                <summary>Full description</summary>
+                <summary>Abstract</summary>
                 <p>This paper numerically investigates the performance of active flow control based on adaptive model predictive control without prior analytical modeling. Recursive least squares with variable-rate forgetting is used for online closed-loop system identification. The identified model is then used for receding-horizon optimization based on quadratic programming. This technique is applied to an airfoil model simulated using computational fluid dynamics.</p>
               </details>
             </div>
@@ -126,14 +175,15 @@
 
         <article class="publication" aria-labelledby="paper-4">
           <div class="publication-copy">
-            <p class="publication-meta"><span class="publication-number">04</span> AIAA SciTech 2024</p>
+            <p class="publication-meta"><span class="publication-number">06</span> AIAA SciTech · 2024 <span class="publication-status">Published</span></p>
             <h3 id="paper-4">Data-Driven Retrospective Cost Adaptive Flow Control</h3>
+            <p class="publication-authors">Jacob C. Vander Schaaf, <strong>Qizhi Lu</strong>, Krzysztof J. Fidkowski, and Dennis S. Bernstein</p>
             <p class="publication-summary">Adaptive flow control that learns as it operates. Online system identification allows the controller to start from zero gains without advance data collection.</p>
             <p class="topics">Adaptive control · Flow control</p>
             <div class="publication-actions">
               <a class="text-link" href="https://dsbaero.engin.umich.edu/wp-content/uploads/sites/441/2024/04/vander-schaaf-et-al-2024-data-driven-retrospective-cost-adaptive-flow-control.pdf">Read paper <span aria-hidden="true">↗</span></a>
               <details>
-                <summary>Full description</summary>
+                <summary>Abstract</summary>
                 <p>This paper focuses on active adaptive flow control. DDRCAC is applied to several 2D internal flow-control problems. Instead of advance data collection, it uses online closed-loop system identification so that the controller adapts from zero gains (cold-start conditions). Hyperparameters are selected based on nominal simulations of fluid dynamics.</p>
               </details>
             </div>
@@ -146,7 +196,42 @@
           </figure>
         </article>
         </div>
-        <div class="section-end"><span>More publications &amp; citations</span><a class="text-link" href="https://scholar.google.com/citations?user=7_LWIh8AAAAJ&amp;hl=en">Find me on Google Scholar <span aria-hidden="true">↗</span></a></div>
+
+        <div class="under-review" aria-labelledby="under-review-title">
+          <div class="under-review-heading"><h3 id="under-review-title">Under review</h3></div>
+          <article class="review-item">
+            <p class="review-venue">American Control Conference (ACC) · 2027</p>
+            <h4>Fixed Time Optimal Feedback Control for Spin Stabilization of a Rigid Spacecraft</h4>
+          </article>
+          <article class="review-item">
+            <p class="review-venue">Journal of Guidance, Control, and Dynamics (AIAA JGCD)</p>
+            <h4>Fixed Time Stabilization and Optimal Feedback Control for Nonlinear Dynamical Systems</h4>
+          </article>
+        </div>
+
+        <section class="undergraduate-research" id="undergraduate-research" aria-labelledby="undergraduate-title">
+          <div class="projects-heading">
+            <h3 id="undergraduate-title">Undergraduate research</h3>
+            <p class="projects-intro">Early projects in <strong>AI &amp; Computer Vision</strong>.</p>
+          </div>
+          <div class="project-grid">
+            <article class="project-item" aria-labelledby="project-calorie-estimation">
+              <p class="project-meta">Rensselaer Polytechnic Institute (RPI) · 2022</p>
+              <h4 id="project-calorie-estimation">End-to-End Vision Based Calories Estimation</h4>
+              <p class="project-credit">Advisor: Oshani Seneviratne</p>
+              <p class="project-summary">I proposed a depth-weighted calorie-map representation for vision-based food calorie estimation. Using the depth channel of training images, I redistributed image-level calorie labels across segmented food-region pixels, weighting them by depth. This representation enables interpretable, pixel-wise calorie estimates and simultaneous calorie prediction and food segmentation.</p>
+              <a class="text-link" href="https://tw.rpi.edu/sites/default/files/2022-04/0422_endtoend.pdf">Research presentation <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="project-item" aria-labelledby="project-aggression-detection">
+              <p class="project-meta">University of Illinois Urbana-Champaign · NCSA · Summer 2021</p>
+              <h4 id="project-aggression-detection">Human Aggression Detection</h4>
+              <p class="project-credit">Mentor: Volodymyr Kindratenko</p>
+              <p class="project-summary">We used ViViT as a baseline for detecting human aggression in videos and proposed a method for generating synthetic violent-scene training videos. The method segments human contours from existing violent-video datasets and composites them into context videos. This augmentation addresses the scarcity of violent-scene training data by creating additional examples in varied settings.</p>
+              <a class="text-link" href="https://www.ncsa.illinois.edu/2021/08/20/2021-ncsa-summer-internships-provide-valuable-experiences-to-undergraduates/">NCSA research feature <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </section>
+        <div class="section-end"><a class="text-link" href="https://scholar.google.com/citations?user=7_LWIh8AAAAJ&amp;hl=en">Find me on Google Scholar <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
