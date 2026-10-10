@@ -45,7 +45,7 @@ nav a:last-child { color: var(--accent); }
 .button:hover { background: var(--accent); color: var(--white); }
 .text-link { display: inline-flex; align-items: center; gap: 14px; min-height: 44px; font-size: 13px; font-weight: 600; text-decoration: none; }
 .text-link span { color: var(--accent); font-size: 18px; }
-.hero-note { background: var(--sage); padding: 24px 28px 28px; align-self: start; border-radius: 3px; }
+.hero-note { background: var(--sage); padding: 24px 28px 28px; align-self: center; border-radius: 3px; }
 .note-top { text-transform: uppercase; font-size: 9px; line-height: 1.6; letter-spacing: 1.4px; white-space: nowrap; color: var(--muted); border-bottom: 1px solid #c7ccbd; padding-bottom: 18px; }
 .flow-drawing { width: calc(100% + 24px); max-width: none; margin-inline: -12px; margin-top: 30px; }
 .hero-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; margin-top: 66px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
