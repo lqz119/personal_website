@@ -47,7 +47,7 @@ nav a:last-child { color: var(--accent); }
 .text-link span { color: var(--accent); font-size: 18px; }
 .hero-note { background: var(--sage); padding: 24px 28px 28px; align-self: start; border-radius: 3px; }
 .note-top { text-transform: uppercase; font-size: 9px; line-height: 1.6; letter-spacing: 1.4px; white-space: nowrap; color: var(--muted); border-bottom: 1px solid #c7ccbd; padding-bottom: 18px; }
-.flow-drawing { width: 100%; margin-top: 14px; }
+.flow-drawing { width: calc(100% + 24px); max-width: none; margin-inline: -12px; margin-top: 30px; }
 .hero-bottom { grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; margin-top: 66px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
 .hero-bottom > span { text-transform: uppercase; letter-spacing: 1.5px; }
 .hero-bottom a { text-decoration: none; }
@@ -122,7 +122,7 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
   .hero-intro, .hero-reflection { max-width: 580px; }
   .hero-reflection { font-size: 19px; }
   .hero-note { padding: 22px; }
-  .flow-drawing { max-width: 420px; margin-inline: auto; }
+  .flow-drawing { width: calc(100% + 16px); margin-inline: -8px; }
   .hero-bottom { margin-top: 0; padding-block: 20px; }
   .research-section { padding-top: 48px; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 18px; margin-bottom: 30px; }
@@ -142,7 +142,6 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
   .site-footer { gap: 8px 20px; }
 }
 @media (max-width: 420px) {
-  .flow-drawing { max-width: 280px; margin-inline: auto; }
   .hero-actions { gap: 8px 18px; }
   .eyebrow { font-size: 10px; letter-spacing: 1.3px; }
   .publication-meta { font-size: 10px; gap: 12px; }
