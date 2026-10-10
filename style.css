@@ -101,7 +101,7 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
 .project-item .text-link { margin-top: 12px; }
 .section-end { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; border-top: 1px solid var(--line); padding: 18px 0 24px; font-size: 12px; color: var(--muted); }
 .background-section { padding-block: 84px; }
-.education { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+.education { display: grid; grid-template-columns: minmax(0, 1fr); }
 .education-item { padding: 24px 0; border-top: 1px solid var(--line); }
 .education-date { font-size: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
 .education-item h3 { font-size: 16px; line-height: 1.4; }
@@ -141,7 +141,6 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
   .hero-note { padding-inline: 22px; }
   .publication { gap: 32px; }
   .personal-grid, .contact-grid { gap: 44px; }
-  .education { gap: 24px; }
   nav { gap: 10px 20px; }
 }
 @media (max-width: 760px) {
@@ -167,7 +166,6 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
   .publication-figure img { max-height: 310px; }
   .project-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .background-section { padding-block: 52px; }
-  .education { grid-template-columns: 1fr; gap: 0; }
   .teaching { margin-top: 36px; }
   .teaching-item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .teaching-role { text-align: left; }
