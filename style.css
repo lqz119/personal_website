@@ -106,6 +106,13 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
 .education-date { font-size: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
 .education-item h3 { font-size: 16px; line-height: 1.4; }
 .education-item h3 + p { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.8; }
+.teaching { margin-top: 48px; }
+.teaching h2 { font-family: var(--serif); font-size: clamp(28px, 3vw, 36px); font-weight: normal; letter-spacing: -.8px; margin-bottom: 24px; }
+.teaching-item { display: grid; grid-template-columns: 110px minmax(0, 1fr) 150px; gap: 24px; align-items: start; padding: 24px 0; border-top: 1px solid var(--line); }
+.teaching-date { font-size: 10px; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; padding-top: 2px; }
+.teaching-institution { font-size: 12px; color: var(--muted); }
+.teaching-course h3 { font-size: 16px; line-height: 1.5; font-weight: 600; margin-top: 8px; }
+.teaching-role { font-size: 12px; color: var(--accent); text-align: right; }
 .personal-section { padding: 64px 0; background: var(--sage); border-block: 1px solid #cfd4c8; }
 .personal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .personal-section h2 span { color: var(--accent); }
@@ -161,6 +168,9 @@ details p { color: var(--muted); font-size: 14px; line-height: 1.8; padding: 12p
   .project-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .background-section { padding-block: 52px; }
   .education { grid-template-columns: 1fr; gap: 0; }
+  .teaching { margin-top: 36px; }
+  .teaching-item { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .teaching-role { text-align: left; }
   .personal-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
   .personal-section { padding-block: 44px; }
   .personal-lead br { display: none; }
